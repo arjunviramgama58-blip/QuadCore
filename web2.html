@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuadCore Technologies — Smart Solutions for Modern Businesses</title>
+  <meta name="description" content="QuadCore Technologies | Custom software, web & mobile apps, cloud & DevOps, ERP/CRM solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#080812;
+      --card:#0f1720;
+      --muted:#9aa4b2;
+      --primary:#00a8ff; /* neon blue */
+      --accent:linear-gradient(90deg,#00a8ff 0%, #6c5cff 100%);
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 14px;
+      --maxw:1200px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      scroll-behavior: smooth;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;background:radial-gradient(1000px 500px at 10% 10%, rgba(0,168,255,0.04), transparent), var(--bg);color:#e6eef6;margin:0}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header{position:sticky;top:12px;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;height:46px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-weight:700;color:#041025}
+    .logo b{font-size:18px}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{font-weight:600;color:var(--muted);padding:8px 12px;border-radius:10px}
+    nav a:hover{color:var(--primary);background:var(--glass)}
+    .cta{padding:10px 14px;background:var(--primary);color:#031226;border-radius:10px;font-weight:700}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 450px;gap:28px;align-items:center;padding:70px 0}
+    .hero .copy h1{font-size:38px;line-height:1.02;margin:0 0 14px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(0,168,255,0.12), rgba(108,92,255,0.06));color:var(--primary);font-weight:700;margin-bottom:14px}
+    .hero p{color:var(--muted);margin:0 0 20px}
+    .hero .buttons{display:flex;gap:12px}
+    .hero .buttons a{padding:12px 16px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:600}
+    .hero .visual{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:16px}
+    .card-app{height:320px;border-radius:12px;background:linear-gradient(180deg, rgba(2,8,20,0.6), rgba(255,255,255,0.02));display:flex;flex-direction:column;gap:14px;padding:18px}
+    .mock{flex:1;border-radius:10px;background:linear-gradient(180deg,#071026 0%, #071b2a 100%);display:flex;flex-direction:column;padding:18px}
+    .kbd{display:flex;gap:8px;align-items:center}
+    .chip{width:48px;height:36px;border-radius:8px;background:var(--glass);display:grid;place-items:center;color:var(--primary);font-weight:700}
+
+    /* FEATURES */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+    .feature h4{margin:0 0 8px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* SECTIONS */
+    section{padding:60px 0}
+    .section-title{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+    .section-title h2{margin:0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,8,20,0.6)}
+
+    /* Services */
+    .services .card{display:flex;flex-direction:column;gap:12px}
+    .service-icon{width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;place-items:center;font-weight:700}
+
+    /* TEAM */
+    .team{display:flex;gap:16px}
+    .member{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:18px;border-radius:12px;text-align:center}
+    .avatar{width:96px;height:96px;border-radius:18px;margin:0 auto 12px;background:linear-gradient(90deg,#0a1220,#061827);display:grid;place-items:center;font-weight:700}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{background:var(--glass-2);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:inherit}
+    button[type=submit]{padding:12px 16px;border-radius:10px;background:var(--primary);border:none;color:#031226;font-weight:700}
+
+    /* FOOTER */
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* small screens */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:18px;padding:40px 0}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      nav ul{display:none}
+      .hero .copy h1{font-size:28px}
+      .features{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+    }
+
+    /* subtle animations */
+    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp 0.8s ease forwards}
+    .delay-1{animation-delay:0.12s}
+    .delay-2{animation-delay:0.18s}
+    .delay-3{animation-delay:0.26s}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="nav fade-up">
+      <div class="brand">
+        <div class="logo-img">
+  <img src=QuadCore.png alt="QuadCore Logo" style="height:46px;width:auto;border-radius:10px;">
+</div>
+
+        <div>
+          <div style="font-weight:700">QuadCore Technologies</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Smart Solutions for Modern Businesses</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <a href="#portfolio">Portfolio</a>
+        </ul>
+      </nav>
+      <a class="cta" href="#contact">Get Started</a>
+      
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="copy">
+          <span class="tag fade-up delay-1">Trusted · Agile · Scalable</span>
+          <h1 class="fade-up delay-2">Smart Solutions for Modern Businesses</h1>
+          <p class="fade-up delay-3">We build fast, secure and scalable web & mobile applications, custom ERP/CRM systems, and cloud-native platforms that power growth.</p>
+          <div class="buttons fade-up delay-3">
+            <a href="#contact" class="cta">Get Started</a>
+            <a href="#services">Our Services</a>
+            <a href="#portfolio">portfolio</a>
+          </div>
+
+          <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+            <div class="card" style="display:flex;gap:12px;align-items:center;min-width:200px">
+              <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center;font-weight:700;color:var(--primary)">24/7</div>
+              <div>
+                <div style="font-weight:700">Reliable Support</div>
+                <div style="color:var(--muted);font-size:13px">Managed Ops & proactive monitoring</div>
+              </div>
+            </div>
+            <div class="card" style="display:flex;gap:12px;align-items:center;min-width:200px">
+              <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center;font-weight:700;color:var(--primary)">∞</div>
+              <div>
+                <div style="font-weight:700">Scalable Architecture</div>
+                <div style="color:var(--muted);font-size:13px">Cloud-ready, microservices & APIs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual fade-up delay-2">
+          <div class="card-app">
+            <div class="kbd">
+              <div class="logo-img">
+  <img src=QuadCore.png alt="QuadCore Logo" style="height:46px;width:auto;border-radius:10px;">
+</div>
+              <div style="flex:1">
+                <div style="font-weight:700">QuadCore Dashboard</div>
+                <div style="color:var(--muted);font-size:12px">Overview · Projects · Analytics</div>
+              </div>
+            </div>
+            <div class="mock" style="margin-top:8px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <div>
+                  <div style="font-weight:700">Active Projects</div>
+                  <div style="color:var(--muted);font-size:12px">18 running · 4 in QA</div>
+                </div>
+                <div style="font-weight:700">Uptime 99.99%</div>
+              </div>
+              <div style="background:linear-gradient(90deg, rgba(0,168,255,0.06), rgba(108,92,255,0.04));border-radius:10px;padding:10px;margin-top:auto">
+                <div style="font-weight:700">Next release</div>
+                <div style="color:var(--muted);font-size:13px">v2.4 — Performance & security hardening</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="features">
+            <div class="feature">
+              <h4>Custom Software</h4>
+              <p> Web tailored to your business workflows.</p>
+            </div>
+            <div class="feature">
+              <h4>Cloud & DevOps</h4>
+              <p>CI/CD, containerization, scalable infra, and cost optimization.</p>
+            </div>
+            <div class="feature">
+              <h4>UI/UX Design</h4>
+              <p>Human-centred design, prototypes, and pixel-perfect UI components.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-title">
+          <h2>About QuadCore</h2>
+        </div>
+        <div class="card" style="display:flex;gap:18px;align-items:center">
+          <div style="flex:1">
+            <h3>Who we are</h3>
+            <p style="color:var(--muted)">QuadCore Technologies is a focused team of engineers, designers and product thinkers building secure, reliable software for startups and enterprises. We believe in clean architecture, measurable impact and long-term partnerships.</p>
+
+            <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+              <div style="padding:10px;border-radius:10px;background:var(--glass);min-width:160px">
+                <div style="font-weight:700">Our Mission</div>
+                <div style="font-size:13px;color:var(--muted)">Deliver website that scales businesses.</div>
+              </div>
+              <div style="padding:10px;border-radius:10px;background:var(--glass);min-width:160px">
+                <div style="font-weight:700">Our Vision</div>
+                <div style="font-size:13px;color:var(--muted)">Make tech accessible, reliable and secure.</div>
+              </div>
+            </div>
+          </div>
+          <div style="width:320px">
+            <div style="font-weight:700;margin-bottom:8px">Our Journey</div>
+            <div style="color:var(--muted);font-size:14px">Started as a small product team, we expanded into full-cycle delivery: planning, engineering, QA, and operations. Today we deliver cloud-native solutions and enterprise-grade systems.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px">
+          <div class="section-title"><h2>Our Team</h2></div>
+          <div class="team">
+            <div class="member card">
+              <div class="avatar">A</div>
+              <div style="font-weight:700">Arjun Viramgama</div>
+              <div style="color:var(--muted);font-size:13px">Founder & CEO</div>
+            </div>
+            <div class="member card">
+              <div class="avatar">Y</div>
+              <div style="font-weight:700">Yuvrajsinh Gohil</div>
+              <div style="color:var(--muted);font-size:13px">Head of Engineering</div>
+            </div>
+            <div class="member card">
+              <div class="avatar">N</div>
+              <div style="font-weight:700">Nikunj Parmar</div>
+              <div style="color:var(--muted);font-size:13px">Product Designer</div>
+            </div>
+            <div class="member card">
+              <div class="avatar">P</div>
+              <div style="font-weight:700">Pavan Chauhan</div>
+              <div style="color:var(--muted);font-size:13px">Project Manager</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="services">
+        <div class="section-title"><h2>Services</h2></div>
+        <div class="grid-3">
+          <div class="card">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="service-icon">ERP</div>
+              <div>
+                <div style="font-weight:700">Custom ERP/CRM</div>
+                <div style="color:var(--muted);font-size:13px">End-to-end enterprise systems to automate operations.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="service-icon">WEB</div>
+              <div>
+                <div style="font-weight:700">Web Application Development</div>
+                <div style="color:var(--muted);font-size:13px">Responsive, accessible and high-performance web apps.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="service-icon">MOB</div>
+              <div>
+                <div style="font-weight:700">Mobile App Development</div>
+                <div style="color:var(--muted);font-size:13px">Cross-platform native-feel experiences for customers.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="service-icon">UI</div>
+              <div>
+                <div style="font-weight:700">UI / UX Design</div>
+                <div style="color:var(--muted);font-size:13px">Prototypes, user flows and pixel-perfect interfaces.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="service-icon">CLOUD</div>
+              <div>
+                <div style="font-weight:700">Cloud & DevOps</div>
+                <div style="color:var(--muted);font-size:13px">CI/CD, infra as code, monitoring and cost optimization.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div class="service-icon">CONS</div>
+              <div>
+                <div style="font-weight:700">IT Consulting</div>
+                <div style="color:var(--muted);font-size:13px">Architecture, audits, and digital transformation roadmaps.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <div class="section-title"><h2>Portfolio</h2></div>
+        <div class="card" style="padding:18px;margin-bottom:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+            <div style="font-weight:700">Selected Projects</div>
+            <div class="filters">
+              <button class="filter-btn" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="web">Web</button>
+              <button class="filter-btn" data-filter="mobile">Mobile</button>
+              <button class="filter-btn" data-filter="erp">ERP</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card card" data-type="web">
+            <div class="project-thumb">Project — EcomPlus</div>
+            <div class="project-body">
+              <div style="font-weight:700">EcomPlus — Ecommerce Platform</div>
+              <div style="color:var(--muted);font-size:13px">A performant PWA ecommerce platform with custom cart, payments and admin dashboards.</div>
+              <div class="tags"><div class="tag-pill">React</div><div class="tag-pill">Node</div><div class="tag-pill">Stripe</div></div>
+              <div style="margin-top:auto;display:flex;gap:8px">
+                <a href="#" class="cta" style="padding:8px 10px">View</a>
+                <a href="#contact" style="padding:8px 10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03)">Discuss</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card card" data-type="mobile">
+            <div class="project-thumb">Project — QuickCare</div>
+            <div class="project-body">
+              <div style="font-weight:700">QuickCare — Healthcare App</div>
+              <div style="color:var(--muted);font-size:13px">Cross-platform mobile app for appointment booking and teleconsultation.</div>
+              <div class="tags"><div class="tag-pill">Flutter</div><div class="tag-pill">Firebase</div></div>
+              <div style="margin-top:auto;display:flex;gap:8px">
+                <a href="#" class="cta" style="padding:8px 10px">View</a>
+                <a href="#contact" style="padding:8px 10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03)">Discuss</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card card" data-type="erp">
+            <div class="project-thumb">Project — CoreERP</div>
+            <div class="project-body">
+              <div style="font-weight:700">CoreERP — Manufacturing ERP</div>
+              <div style="color:var(--muted);font-size:13px">End-to-end ERP for inventory, production planning and accounting.</div>
+              <div class="tags"><div class="tag-pill">Angular</div><div class="tag-pill">Postgres</div><div class="tag-pill">Docker</div></div>
+              <div style="margin-top:auto;display:flex;gap:8px">
+                <a href="#" class="cta" style="padding:8px 10px">View</a>
+                <a href="#contact" style="padding:8px 10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03)">Discuss</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-title"><h2>Contact Us</h2></div>
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Get in touch</h3>
+            <p style="color:var(--muted)">Tell us about your project and we'll respond within one business day.</p>
+
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;gap:12px;align-items:center">
+                <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center">📍</div>
+                <div>
+                  <div style="font-weight:700">Rajkot, Gujarat</div>
+                  <div style="color:var(--muted);font-size:13px">India</div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:12px;align-items:center">
+                <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center">✉️</div>
+                <div>
+                  <div style="font-weight:700">arjunviramgama58@gmail.com</div>
+                  <div style="color:var(--muted);font-size:13px">Email us your requirements</div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:12px;align-items:center">
+                <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center">📞</div>
+                <div>
+                  <div style="font-weight:700">+91 92744 27993</div>
+                  <div style="color:var(--muted);font-size:13px">Call or WhatsApp</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:16px">
+              <iframe title="map" src="https://www.google.com/maps?q=Rajkot,+Gujarat&output=embed" style="width:100%;height:220px;border:0;border-radius:10px"></iframe>
+            </div>
+          </div>
+
+          <div class="card">
+            <form id="contactForm">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input type="email" name="email" placeholder="Email" required />
+              <input type="tel" name="phone" placeholder="Phone (optional)" />
+              <textarea name="message" rows="6" placeholder="Tell us about your project" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+            <div id="formMsg" style="margin-top:10px;color:var(--muted)"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700">QuadCore Technologies</div>
+          <div style="font-size:13px;color:var(--muted)">© " + new Date().getFullYear() + " QuadCore Technologies. All rights reserved.</div>
+        </div>
+        <div style="display:flex;gap:12px;color:var(--muted)">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple form handler (no backend). In production, wire to an API or form service.
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const email = data.get('email');
+      const phone = data.get('phone');
+      const message = data.get('message');
+      // Basic validation
+      if(!name || !email || !message){
+        msg.textContent = 'Please fill required fields.';
+        return;
+      }
+      // Simulate submit
+      msg.textContent = 'Thanks ' + name + '! Your message was sent (demo). We will contact you soon.';
+      form.reset();
+    });
+
+    // Small enhancement: animate on load
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{
+        el.style.animationDelay = (i * 0.06) + 's';
+      })
+      // small dynamic footer year fix (innerHTML safe because static)
+      const footerYear = document.querySelector('footer div div:nth-child(2)');
+      if(footerYear) footerYear.innerHTML = '© ' + new Date().getFullYear() + ' QuadCore Technologies. All rights reserved.';
+    });
+  </script>
+</body>
+</html>
